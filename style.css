@@ -1,0 +1,63 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+* {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+._active {
+  display: block !important;
+}
+
+.container {
+  position: relative;
+  width: 1000px;
+  height: 750px;
+  margin: 0 auto;
+  padding-top: 50px;
+  background-image: url("./assets/img/bg-2.jpg");
+}
+
+.game {
+  width: 800px;
+  height: 650px;
+  margin: 0 auto ;
+  background-color: silver;
+}
+
+.button {
+  position: absolute;
+  background-color: lightseagreen;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button:active {
+  background-color: lightblue;
+}
+
+.scrit {
+  top: 15px;
+  left: 30px;
+}
+
+.scritTable {
+  position: absolute;
+  display: none;
+  top:40px;
+  left:2px;
+  width: 125px;
+  height: 175px;
+  background-color: darkgreen;
+}
+
