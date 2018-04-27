@@ -7,14 +7,45 @@
 </head>
 <body>
 <div class="container">
-    <div class="game">
+
+    <div class="menu">
+        <a class="button scrit" data-name="scrit">Scirt Cards</a>
+        <a class="button difficulty" data-name="difficulty">Difficulty</a>
 
     </div>
-    <a class="button scrit">Scirt Cards</a>
-    <a class="button difficulty">Difficulty</a>
-    <a class="button newGame">New Game</a>
-    <div class="scritTable"></div>
+
+    <a class="button newGame" data-name="newGame">New Game</a>
+
+    <div class="game">
+        <h1>Rules</h1>
+    </div>
+
+    <div class="rules">
+        RULES
+    </div>
+
+
+    <div class="scritTable">
+        <ul>
+            <li class="scirtOne">1</li>
+            <li class="scirtTwo">2</li>
+            <li class="scirtThree">3</li>
+        </ul>
+    </div>
+
+    <div class="difficultyTable">
+        <ul>
+            <li class="scirtOne">4</li>
+            <li class="scirtTwo">5</li>
+            <li class="scirtThree">6</li>
+        </ul>
+    </div>
 </div>
+<script src="Modules/Menu.js"></script>
+<script src="Modules/Storage.js"></script>
+<script src="Modules/Rules.js"></script>
+<script src="Modules/Cardboard.js"></script>
+<script src="Modules/Card.js"></script>
 <script src="game.js"></script>
 </body>
 </html>
