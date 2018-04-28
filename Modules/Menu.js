@@ -1,5 +1,18 @@
 class ButtonMenu {
 
+    constructor() {
+        this.settings = {
+            scirt: 'gold',
+            difficulty: 'easy'
+        };
+    }
+
+    clearBorder(itemsArray) {
+        for (let i = 0; i < itemsArray.length; i++) {
+            itemsArray[i].children[0].style="border: none"
+        }
+    }
+
     tableToggle(item) {
         let table = document.querySelector(`.${item.dataset.name}Table`);
         //'.' + item + 'Table'
@@ -16,8 +29,25 @@ class ButtonMenu {
         }
     }
 
-    gameActive() {
-        
+    selectScirt(item) {
+        this.settings.scirt = item.dataset.scirt;
+
+        let container = document.querySelectorAll('.scirtCard');
+
+        this.clearBorder(container);
+
+        for (let i = 0; i < container.length; i++) {
+            if(container[i].children[0].dataset.scirt === this.settings.scirt) {
+                container[i].children[0].style="border: 5px solid red"
+            }
+        }
     }
+    
+    selectDifficulty(item) {
+        this.settings.difficulty = item.dataset.difficulty;
+        console.log(this.settings);
+    }
+
+
 
 }

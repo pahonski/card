@@ -1,3 +1,39 @@
+@font-face {
+  font-family: JFWilwod;
+  src: url('./assets/fonts/JFWilwod.ttf');
+}
+
+@font-face {
+  font-family: Pinewood;
+  src: url('./assets/fonts/Pinewood.ttf');
+}
+
+@font-face {
+  font-family: WoodWud;
+  src: url('./assets/fonts/WoodWud.ttf');
+}
+
+@font-face {
+  font-family: Logger;
+  src: url('./assets/fonts/Logger.ttf');
+}
+
+@font-face {
+  font-family: DeathBranch;
+  src: url('./assets/fonts/DeathBranch.ttf');
+}
+
+@font-face {
+  font-family: force5;
+  src: url('./assets/fonts/force5.ttf');
+}
+
+
+
+
+
+
+
 html {
   box-sizing: border-box;
 }
@@ -11,6 +47,10 @@ html {
   -moz-user-select: -moz-none;
   -o-user-select: none;
   user-select: none;
+}
+
+body {
+  font-family: Pinewood;
 }
 
 ul, li, h1, h2, p {
@@ -28,7 +68,7 @@ ul, li, h1, h2, p {
   width: 1000px;
   height: 750px;
   margin: 0 auto;
-  background-image: url("./assets/img/bg-2.jpg");
+  background-image: url("./assets/img/game-background.jpeg");
 }
 
 .game, .rules {
@@ -36,7 +76,20 @@ ul, li, h1, h2, p {
   width: 800px;
   height: 650px;
   margin: 0 auto ;
-  background-color: silver;
+  background-color: inherit;
+}
+
+.rules {
+  margin-top: 55px;
+  color: #EEE8DF;
+}
+
+.rules h1 {
+  margin-bottom: 25px;
+}
+
+.rules-description li {
+  margin-bottom: 15px;
 }
 
 .menu {
@@ -48,9 +101,8 @@ ul, li, h1, h2, p {
   position: absolute;
   min-width: 150px;
   padding: 5px;
-  border: 1px solid lightblue;
   border-radius: 15px;
-  background-color: lightseagreen;
+  background-color: #EEE8DF;
   text-align: center;
 }
 
@@ -93,8 +145,7 @@ ul, li, h1, h2, p {
   top: 38px;
   left: 30px;
   width: 150px;
-  height: 175px;
-  background-color: #20B2AA;
+  background-color: rgba(0,0,0,0.6);
 }
 
 .difficultyTable {
@@ -104,7 +155,7 @@ ul, li, h1, h2, p {
   left: 200px;
   width: 150px;
   height: 175px;
-  background-color: #20B2AA;
+  background-color: rgba(0,0,0,0.6);
 }
 
 .scoreTable {
@@ -114,7 +165,7 @@ ul, li, h1, h2, p {
   left: 370px;
   width: 150px;
   height: 175px;
-  background-color: #20B2AA;
+  background-color: rgba(0,0,0,0.6);
 }
 
 .rules {
@@ -137,6 +188,20 @@ ul, li, h1, h2, p {
 .register {
   position: relative;
   display: inline-block;
+  color: black;
+}
 
+.scirtCard {
+  padding: 5px;
+  text-align: center;
+}
+
+.scirtCard img {
+  width: 50px;
+}
+
+.scirtCard img:hover {
+  box-shadow: 0 0 0 2px lightblue;
+  cursor: pointer;
 }
 

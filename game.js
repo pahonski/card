@@ -18,9 +18,14 @@ window.onload = function () {
       email: email.value
     };
     storage.addUser(user);
-
-
   });
+
+    let menuScrit = document.querySelector('.scritTableMenu');
+    menuScrit.addEventListener('click', function (e) {
+        menu.selectScirt(e.target);
+    });
+    
+    
 
 
 
