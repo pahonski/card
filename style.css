@@ -136,7 +136,7 @@ ul, li, h1, h2, p {
 
 .newGame {
   top: 10px;
-  right: 100px;
+  right: 30px;
 }
 
 .scritTable {
@@ -156,6 +156,17 @@ ul, li, h1, h2, p {
   width: 150px;
   height: 175px;
   background-color: rgba(0,0,0,0.6);
+}
+
+.difficultyTableMenu {
+  margin-top: 30px;
+}
+
+.difficultySelect {
+  padding: 5px 15px;
+  text-align: center;
+  color: #EEE8DF;
+  font-size: 27px;
 }
 
 .scoreTable {
@@ -200,8 +211,88 @@ ul, li, h1, h2, p {
   width: 50px;
 }
 
-.scirtCard img:hover {
+.scirtCard img:hover,
+.difficultySelect:hover{
   box-shadow: 0 0 0 2px lightblue;
   cursor: pointer;
+}
+
+.game {
+  position: relative;
+  padding: 25px;
+}
+
+.user-display {
+  position: absolute;
+  top: -40px;
+  right: 260px;
+  color: #EEE8DF;
+}
+
+.userCounter {
+  position: absolute;
+  right: 145px;
+  top: -55px;
+  color: #EEE8DF;
+  font-size: 35px;
+}
+
+.card, .front, .back {
+  display: inline-block;
+  margin-bottom: 15px;
+  margin-right: 25px;
+  width: 140px;
+  height: 210px;
+  background-size: cover;
+}
+
+.gold {
+  background-image: url("./assets/img/scirtGold.png");
+}
+
+.blue {
+  background-image: url("./assets/img/scritBlue.png");
+}
+
+.black {
+  background-image: url("./assets/img/scritBlack.png");
+}
+
+.card {
+  perspective: 1000px;
+}
+/* flip the pane when hovered */
+/*.card:hover .flipper, .card.hover .flipper,*/
+.card._opened .flipper {
+  transform: rotateY(180deg);
+}
+
+/* flip speed goes here */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+  backface-visibility: hidden;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg);
 }
 

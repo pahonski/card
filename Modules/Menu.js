@@ -7,10 +7,19 @@ class ButtonMenu {
         };
     }
 
-    clearBorder(itemsArray) {
+    clearBorder(itemsArray, flag) {
+      if (flag === 'scirt') {
         for (let i = 0; i < itemsArray.length; i++) {
-            itemsArray[i].children[0].style="border: none"
+          itemsArray[i].children[0].style="border: none"
         }
+      }
+
+      if (flag === 'difficulty') {
+        for (let i = 0; i < itemsArray.length; i++) {
+          itemsArray[i].style="border: none"
+        }
+      }
+
     }
 
     tableToggle(item) {
@@ -33,8 +42,9 @@ class ButtonMenu {
         this.settings.scirt = item.dataset.scirt;
 
         let container = document.querySelectorAll('.scirtCard');
+      console.log(container);
 
-        this.clearBorder(container);
+        this.clearBorder(container, 'scirt');
 
         for (let i = 0; i < container.length; i++) {
             if(container[i].children[0].dataset.scirt === this.settings.scirt) {
@@ -44,8 +54,23 @@ class ButtonMenu {
     }
     
     selectDifficulty(item) {
-        this.settings.difficulty = item.dataset.difficulty;
-        console.log(this.settings);
+      this.settings.difficulty = item.dataset.difficulty;
+      let container = document.querySelectorAll('.difficultySelect');
+      console.log(container);
+
+      this.clearBorder(container, 'difficulty');
+
+
+      for (let i = 0; i < container.length; i++) {
+        console.log(container[i].dataset.difficulty);
+        if(container[i].dataset.difficulty === this.settings.difficulty) {
+          container[i].style="border: 5px solid red";
+        }
+      }
+    }
+
+    getSettings() {
+      return this.settings;
     }
 
 
