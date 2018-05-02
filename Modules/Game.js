@@ -1,9 +1,9 @@
 class Game {
 
-    constructor(user, settings) {
+    constructor() {
         this.container = document.querySelector('.game');
-        this.user = user;
-        this.settings = settings;
+        this.user = '';
+        this.settings = '';
         this.cards = [];
         this.count = 0;
 
@@ -79,11 +79,24 @@ class Game {
         }
     }
 
-    startGame() {
-        this.container.style = 'display: block;';
+    startGame(settings, user) {
+        this.cards = [];
+        this.container.innerHTML = '';
+        if (!this.user) {
+            this.user = user;
+            this.container.style = 'display: block;';
+        }
+        this.settings = settings;
         this.userDisplay();
         this.gameCounter();
         this.renderGame(this.settings);
         console.log(this.cards);
+    }
+
+    winGame() {
+        let winContainer = document.createElement('div');
+        winContainer.classList.add('win');
+        winContainer.innerHTML = `Congratulations! You Win! Time: ${this.count} seconds`;
+        this.container.appendChild(winContainer);
     }
 }
