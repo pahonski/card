@@ -5,6 +5,13 @@ class Game {
         this.user = user;
         this.settings = settings;
         this.cards = [];
+        this.count = 0;
+
+
+    }
+
+    getCardsArrayLength() {
+        return this.cards.length;
     }
 
     userDisplay() {
@@ -15,15 +22,20 @@ class Game {
     }
 
     gameCounter() {
-        let count = 0;
+        let that = this;
         let counter = document.createElement('div');
         counter.classList.add('userCounter');
         this.container.appendChild(counter);
 
         function startCounter() {
-            counter.innerHTML = count++;
+            counter.innerHTML = that.count++;
         }
         setInterval(startCounter, 1000);
+    }
+
+    stopGameCounter() {
+        let item = document.querySelector('.userCounter');
+        item.parentNode.removeChild(item);
     }
 
     randomizeCards() {
