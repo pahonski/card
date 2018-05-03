@@ -24,8 +24,6 @@ class ButtonMenu {
 
     tableToggle(item) {
         let table = document.querySelector(`.${item.dataset.name}Table`);
-        //'.' + item + 'Table'
-        console.log(table, '.' + item.dataset.name + 'Table');
         let opened = '_opened';
         let active = '_active';
 
@@ -42,7 +40,6 @@ class ButtonMenu {
         this.settings.scirt = item.dataset.scirt;
 
         let container = document.querySelectorAll('.scirtCard');
-      console.log(container);
 
         this.clearBorder(container, 'scirt');
 
@@ -56,13 +53,11 @@ class ButtonMenu {
     selectDifficulty(item) {
       this.settings.difficulty = item.dataset.difficulty;
       let container = document.querySelectorAll('.difficultySelect');
-      console.log(container);
 
       this.clearBorder(container, 'difficulty');
 
 
       for (let i = 0; i < container.length; i++) {
-        console.log(container[i].dataset.difficulty);
         if(container[i].dataset.difficulty === this.settings.difficulty) {
           container[i].style="border: 5px solid red";
         }

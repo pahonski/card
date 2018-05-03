@@ -28,6 +28,8 @@ window.onload = function() {
 
     document.querySelector('.newGame').addEventListener('click', function () {
         game.startGame(menu.getSettings(), '');
+        game.gameCounterRefresh();
+        cards = game.getCardsArrayLength();
     });
 
     let menuScrit = document.querySelector('.scritTableMenu');
@@ -71,7 +73,6 @@ window.onload = function() {
                 }
             }
             if (cards === 0) {
-                game.stopGameCounter();
                 setTimeout(game.winGame(), 5500);
             }
         }

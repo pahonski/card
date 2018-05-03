@@ -1,12 +1,16 @@
 class Game {
 
     constructor() {
+        this.menu = document.querySelector('.menu');
         this.container = document.querySelector('.game');
         this.user = '';
         this.settings = '';
         this.cards = [];
         this.count = 0;
-
+        this.timeInterval = function(startCounter){
+            setInterval(startCounter, 1000);
+            console.log(this.timeInterval);
+        }
 
     }
 
@@ -18,35 +22,39 @@ class Game {
         let user = document.createElement('div');
         user.classList.add('user-display');
         user.innerText = this.user;
-        this.container.appendChild(user);
+        this.menu.appendChild(user);
     }
 
-    gameCounter() {
+    gameCounterStart() {
         let that = this;
+        that.count = 0;
         let counter = document.createElement('div');
         counter.classList.add('userCounter');
-        this.container.appendChild(counter);
+        this.menu.appendChild(counter);
 
         function startCounter() {
             counter.innerHTML = that.count++;
         }
-        setInterval(startCounter, 1000);
+
+        this.timeInterval(startCounter);
     }
 
-    stopGameCounter() {
-        let item = document.querySelector('.userCounter');
-        item.parentNode.removeChild(item);
+    gameCounterStop() {
+
+    }
+
+    gameCounterRefresh() {
+        document.querySelector('.userCounter').style.visibility = 'visible';
+        this.count = 0;
+        clearInterval(this.timeInterval);
     }
 
     randomizeCards() {
-
         function compareRandom(a, b) {
             return Math.random() - 0.5;
         }
 
         this.cards.sort(compareRandom);
-
-        console.log(this.cards); // элементы в случайном порядке, например [3,5,1,2,4]
     }
 
     createCards(settings, idArray) {
@@ -85,16 +93,17 @@ class Game {
         if (!this.user) {
             this.user = user;
             this.container.style = 'display: block;';
+            this.gameCounterStart();
         }
+        this.gameCounterRefresh();
         this.settings = settings;
         this.userDisplay();
-        this.gameCounter();
         this.renderGame(this.settings);
-        console.log(this.cards);
     }
 
     winGame() {
         let winContainer = document.createElement('div');
+        document.querySelector('.userCounter').style.visibility = 'hidden';
         winContainer.classList.add('win');
         winContainer.innerHTML = `Congratulations! You Win! Time: ${this.count} seconds`;
         this.container.appendChild(winContainer);
